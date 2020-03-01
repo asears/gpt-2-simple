@@ -2,7 +2,10 @@ from toposort import toposort
 import contextlib
 import numpy as np
 import tensorflow as tf
-import tensorflow.contrib.graph_editor as ge
+
+# TF 2.1 Upgrade
+#import tensorflow.contrib.graph_editor as ge
+import graph_def_editor as ge
 import time
 import sys
 sys.setrecursionlimit(10000)
@@ -14,8 +17,11 @@ setattr(tf.compat.v1.GraphKeys, "VARIABLES", "variables")
 
 # save original gradients since tf.gradient could be monkey-patched to point
 # to our version
-from tensorflow.python.ops import gradients as tf_gradients_lib
-tf_gradients = tf_gradients_lib.gradients
+#from tensorflow.python.ops import gradients as tf_gradients_lib
+
+#from tensorflow import gradients as tf_gradients_lib
+#tf_gradients = tf_gradients_lib.gradients
+tf_gradients = tf.gradients
 
 MIN_CHECKPOINT_NODE_SIZE=1024    # use lower value during testing
 
