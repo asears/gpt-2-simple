@@ -1,6 +1,8 @@
-tensorflow
-regex
-requests
-tqdm
-numpy
-toposort
+tensorflow==2.1.0
+numpy==1.18.1
+requests==2.22.0
+protobuf==3.11.3
+regex==2020.2.20
+toposort==1.5
+tqdm==4.43.0
+graph-def-editor==0.1.0

@@ -277,6 +277,10 @@ def finetune(sess,
             'Saving',
             os.path.join(checkpoint_path,
                          'model-{}').format(counter-1))
+        # TF 2.1 Upgrade warning 
+        # WARNING: *.save requires manual check. (This warning is only applicable if the code saves a tf.Keras model) Keras model.
+        # save now saves to the Tensorflow SavedModel format by default, instead of HDF5. 
+        # To continue saving to HDF5, add the argument save_format='h5' to the save() function.
         saver.save(
             sess,
             os.path.join(checkpoint_path, 'model'),
