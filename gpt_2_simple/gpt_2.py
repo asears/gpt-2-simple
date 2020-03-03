@@ -18,7 +18,7 @@ import argparse
 # if in Google Colaboratory
 try:
     from google.colab import drive
-except:
+except ImportError:
     pass
 
 from gpt_2_simple.src import model, sample, encoder, memory_saving_gradients
